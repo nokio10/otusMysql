@@ -1,0 +1,4 @@
+master:
+  server_id: 1
+slave:
+  server_id: 2
