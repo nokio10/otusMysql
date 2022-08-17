@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
           box.vm.network "private_network", ip: boxconfig[:ip_addr]
 
           box.vm.provider :virtualbox do |vb|
-            vb.customize ["modifyvm", :id, "--memory", "1024"]
+            vb.customize ["modifyvm", :id, "--memory", "2048"]
             # Подключаем дополнительные диски
             #vb.customize ['createhd', '--filename', second_disk, '--format', 'VDI', '--size', 5 * 1024]
             #vb.customize ['storageattach', :id, '--storagectl', 'IDE', '--port', 0, '--device', 1, '--type', 'hdd', '--medium', second_disk]
