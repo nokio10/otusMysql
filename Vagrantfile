@@ -32,9 +32,12 @@ Vagrant.configure("2") do |config|
             #vb.customize ['storageattach', :id, '--storagectl', 'IDE', '--port', 0, '--device', 1, '--type', 'hdd', '--medium', second_disk]
           end
 
-          box.vm.provision :shell do |s|
-             s.inline = 'mkdir -p ~root/.ssh; cp ~vagrant/.ssh/auth* ~root/.ssh'
-          end
+      if boxconfig[:vm_name] == "slave"
+      box.vm.provision "ansible" do |ansible|
+      ansible.playbook = "ansible/main.yaml"
+      ansible.host_key_checking = "false"
+      ansible.limit = "all"
+      end
 
       end
   end
