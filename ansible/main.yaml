@@ -10,4 +10,22 @@
       state: present
       update_cache: true
   - name: 
+    copy: 
+      src: "{{ item }}" 
+      dest: /etc/my.cnf.d/
+      owner: root 
+      group: root
+      mode: 0770
+    with_fileglob:
+      - *.cnf
+  - name: start mysql
+    systemd:
+      name: mysql
+      enabled: yes
+      state: started  
+  - name: register password
+    shell: cat /var/log/mysqld.log | grep 'root@localhost:' | awk '{print $11}'
+    register: password
+  - name: change password
+    shell: mysql -uroot -p {{ password }} | ALTER USER USER() IDENTIFIED BY 'YourStrongPassword';
     
