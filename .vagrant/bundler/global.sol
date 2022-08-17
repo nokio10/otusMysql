@@ -1,0 +1,1 @@
+{"dependencies":[["vagrant-vlan",["= 1.0.1"]]],"checksum":"b3ae735f9c6fe2334b8d870e112b4530ad1e8ed322286126a2c1539dbc42b367","vagrant_version":"2.2.19"}

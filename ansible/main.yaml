@@ -4,28 +4,28 @@
   tasks:
   - name: install packages
     yum: 
-      name: 
-        - https://repo.percona.com/yum/percona-release-latest.noarch.rpm
-        - Percona-Server-server-57
+      name: https://repo.percona.com/yum/percona-release-latest.noarch.rpm
       state: present
       update_cache: true
+  - name: install Percona-Server
+    yum:
+      name: Percona-Server-server-57
+      state: present
+      update_cache: true
+  - name: Disable SELinux
+    selinux:
+      state: permissive
   - name: 
-    copy: 
+    template: 
       src: "{{ item }}" 
       dest: /etc/my.cnf.d/
-      owner: root 
+      owner: mysql 
       group: root
-      mode: 0770
+      mode: 0660
     with_fileglob:
-      - *.cnf
+      - templates/*.cnf
   - name: start mysql
     systemd:
       name: mysql
       enabled: yes
-      state: started  
-  - name: register password
-    shell: cat /var/log/mysqld.log | grep 'root@localhost:' | awk '{print $11}'
-    register: password
-  - name: change password
-    shell: mysql -uroot -p {{ password }} | ALTER USER USER() IDENTIFIED BY 'YourStrongPassword';
-    
+      state: restarted      

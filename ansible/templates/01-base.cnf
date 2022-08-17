@@ -10,6 +10,5 @@ server-id = 1
 {% if ansible_hostname == 'slave' %}
 server-id = 2
 {% endif %}
-endif 
 innodb_file_per_table = 1
 skip-name-resolve

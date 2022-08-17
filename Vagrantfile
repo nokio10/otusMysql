@@ -32,13 +32,13 @@ Vagrant.configure("2") do |config|
             #vb.customize ['storageattach', :id, '--storagectl', 'IDE', '--port', 0, '--device', 1, '--type', 'hdd', '--medium', second_disk]
           end
 
-      if boxconfig[:vm_name] == "slave"
+      if boxname.to_s == "slave"
       box.vm.provision "ansible" do |ansible|
       ansible.playbook = "ansible/main.yaml"
       ansible.host_key_checking = "false"
       ansible.limit = "all"
       end
-
-      end
+	end
+	end
   end
 end
