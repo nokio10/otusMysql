@@ -188,13 +188,13 @@ mysql> show slave status \G;
                 Connect_Retry: 60
               Master_Log_File: mysql-bin.000005
           Read_Master_Log_Pos: 943
-               Relay_Log_File: slave-relay-bin.000016
+               Relay_Log_File: slave-relay-bin.000018
                 Relay_Log_Pos: 454
         Relay_Master_Log_File: mysql-bin.000005
              Slave_IO_Running: Yes
             Slave_SQL_Running: Yes
               Replicate_Do_DB:
-          Replicate_Ignore_DB: information_schema,mysql,performance_schema,sys
+          Replicate_Ignore_DB:
            Replicate_Do_Table:
        Replicate_Ignore_Table: bet.events_on_demand,bet.v_same_event
       Replicate_Wild_Do_Table:
@@ -203,7 +203,7 @@ mysql> show slave status \G;
                    Last_Error:
                  Skip_Counter: 0
           Exec_Master_Log_Pos: 943
-              Relay_Log_Space: 961
+              Relay_Log_Space: 701
               Until_Condition: None
                Until_Log_File:
                 Until_Log_Pos: 0
@@ -239,7 +239,7 @@ Master_SSL_Verify_Server_Cert: No
          Replicate_Rewrite_DB:
                  Channel_Name:
            Master_TLS_Version:
-1 row in set (0.00 sec)
+1 row in set (0.01 sec)
 
 ERROR:
 No query specified
