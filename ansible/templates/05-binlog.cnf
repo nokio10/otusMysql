@@ -8,6 +8,9 @@ binlog-format = "MIXED"
 log-slave-updates = On
 gtid-mode = On
 enforce-gtid-consistency = On
+{% if ansible_hostname == 'master' %}
+binlog-do-db = bet
+{% endif %}
 
 {% if ansible_hostname == 'slave' %}
 replicate-ignore-table=bet.events_on_demand
