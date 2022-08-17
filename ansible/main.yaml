@@ -1,1 +1,13 @@
-
+---   
+- hosts: all
+  become: yes
+  tasks:
+  - name: install packages
+    yum: 
+      name: 
+        - https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+        - Percona-Server-server-57
+      state: present
+      update_cache: true
+  - name: 
+    
