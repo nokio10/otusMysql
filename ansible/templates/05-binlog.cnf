@@ -15,5 +15,4 @@ binlog-do-db = bet
 {% if ansible_hostname == 'slave' %}
 replicate-ignore-table=bet.events_on_demand
 replicate-ignore-table=bet.v_same_event
-replicate-do-db = bet
 {% endif %}
