@@ -3,11 +3,11 @@
 
 MACHINES = {
   :master => {
-        :box_name => "centos7",
+        :box_name => "centos/7",
         :ip_addr => '192.168.11.150'
   },
   :slave => {
-        :box_name => "centos7",
+        :box_name => "centos/7",
         :ip_addr => '192.168.11.151'
   }
 }
